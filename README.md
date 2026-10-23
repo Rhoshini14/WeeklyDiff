@@ -16,9 +16,9 @@
 >The hardest problem is keeping the searchable index synchronized with the Django source code when files are added, modified, or deleted. The system must update only the affected files without re-indexing the entire codebase and ensure that AI-generated answers refer to the correct and latest source code.
 
 ## Dataset
-|              Source           |                 Link             |        Documents    |           Pages           |  Licence / terms  |
-|-------------------------------|----------------------------------|---------------------|---------------------------|-------------------|
-| Django source code repository | https://github.com/django/django | 2,937 Python files  | N/A — source-code dataset |     <licence>     |
+|              Source           |                 Link             |        Documents    |           Pages           |  Licence / terms   |
+|-------------------------------|----------------------------------|---------------------|---------------------------|--------------------|
+| Django source code repository | https://github.com/django/django | 2,937 Python files  | N/A — source-code dataset |     <licence>      |
 
 ## 10 real questions
 See [docs/QUESTIONS.md](docs/QUESTIONS.md).
