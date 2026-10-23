@@ -1,23 +1,24 @@
-# <Your product name>
+# Django Code Intelligence System
 
 > Fill this top section from your Examate project card on Day 1. Replace every line in angle brackets.
 
 ## Problem
-<3–5 sentences: who struggles with what today, and what your product changes.>
+>Django contains thousands of Python files, making it difficult for developers to quickly understand its internal implementation. Developers often spend time searching through source code to find relevant information. AI-powered code assistants may provide outdated answers when the source code changes and the searchable index is not updated. My project aims to solve this problem by detecting code changes and updating only the affected files, helping developers get accurate and up-to-date answers.
 
 ## Who it is for
-<One or two real user types, for example "compliance officer at a gold-loan NBFC in Coimbatore".>
+>Django backend developers who need to understand and navigate large codebases.
+>Software development team leads who need to track code changes and find accurate information about Django's implementation
 
 ## Signature feature
-<One sentence: the feature only your product has.>
+>Automatically detects added, modified, and deleted Django source files and updates only the affected files in the searchable index, keeping AI-generated answers up to date with the latest code changes.
 
 ## Hardest problem (my interview story)
-<In your own words, from your project card.>
+>The hardest problem is keeping the searchable index synchronized with the Django source code when files are added, modified, or deleted. The system must update only the affected files without re-indexing the entire codebase and ensure that AI-generated answers refer to the correct and latest source code.
 
 ## Dataset
-| Source | Link | Documents | Pages | Licence / terms |
-|---|---|---|---|---|
-| <name> | <url> | <n> | <n> | <licence> |
+|              Source           |                 Link             |        Documents    |           Pages           |  Licence / terms  |
+|-------------------------------|----------------------------------|---------------------|---------------------------|-------------------|
+| Django source code repository | https://github.com/django/django | 2,937 Python files  | N/A — source-code dataset |     <licence>     |
 
 ## 10 real questions
 See [docs/QUESTIONS.md](docs/QUESTIONS.md).
