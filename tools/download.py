@@ -5,17 +5,9 @@ urls.txt: one URL per line (lines starting with # are skipped).
 Saves files to data/raw/ and logs every file to data/manifest.csv.
 """
 
-import csv
-import hashlib
 import os
-import sys
-import time
-from datetime import date
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
-
-import requests
-
 
 RAW = "data/raw"
 MANIFEST = "data/manifest.csv"
