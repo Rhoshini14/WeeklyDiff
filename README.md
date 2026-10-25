@@ -31,6 +31,13 @@ cp .env.example .env                                 # Windows: copy .env.exampl
 uvicorn app.main:app --reload
 curl localhost:8000/health
 ```
+## Quality checks
+
+Run these commands before pushing changes:
+
+```powershell
+ruff check .
+python -m pytest -q
 
 ## Live link
 <Added in Week 2>
