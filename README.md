@@ -1,7 +1,5 @@
 # Django Code Intelligence System
 
-> Fill this top section from your Examate project card on Day 1. Replace every line in angle brackets.
-
 ## Problem
 >Django contains thousands of Python files, making it difficult for developers to quickly understand its internal implementation. Developers often spend time searching through source code to find relevant information. AI-powered code assistants may provide outdated answers when the source code changes and the searchable index is not updated. My project aims to solve this problem by detecting code changes and updating only the affected files, helping developers get accurate and up-to-date answers.
 
@@ -38,6 +36,7 @@ Run these commands before pushing changes:
 ```powershell
 ruff check .
 python -m pytest -q
+```
 
 ## Live link
-<Added in Week 2>
+Not deployed yet. The live link will be added after deployment in Week 2.
