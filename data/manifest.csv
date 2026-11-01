@@ -1,0 +1,3 @@
+url,file,status,downloaded_at
+https://docs.djangoproject.com/en/stable/,,"error: HTTPSConnectionPool(host='docs.djangoproject.com', port=443): Read timed out. (read timeout=20)",
+https://docs.djangoproject.com/en/stable/,data/raw\index.html,downloaded,2026-10-26 20:52:50
