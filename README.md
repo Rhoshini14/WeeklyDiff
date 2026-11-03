@@ -29,6 +29,12 @@ cp .env.example .env                                 # Windows: copy .env.exampl
 uvicorn app.main:app --reload
 curl localhost:8000/health
 ```
+## Run with Docker
+```bash
+cp .env.example .env
+docker compose up --build
+curl localhost:8000/ready
+```
 ## Quality checks
 
 Run these commands before pushing changes:
