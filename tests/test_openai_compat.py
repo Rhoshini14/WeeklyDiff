@@ -1,6 +1,6 @@
 import json
 
-import httpx2
+import httpx
 import pytest
 
 from app.llm.openai_compat import OpenAICompatProvider
@@ -14,7 +14,7 @@ REQUEST = LLMRequest(
 
 @pytest.mark.anyio
 async def test_openai_compatible_provider_reads_sse_and_usage():
-    def handler(request: httpx2.Request) -> httpx2.Response:
+    def handler(request: httpx.Request) -> httpx.Response:
         assert request.url.path == "/v1/chat/completions"
         assert request.headers["authorization"] == "Bearer secret"
         payload = {
@@ -29,13 +29,13 @@ async def test_openai_compatible_provider_reads_sse_and_usage():
             f"data: {json.dumps(usage)}\n\n"
             "data: [DONE]\n\n"
         )
-        return httpx2.Response(200, text=body)
+        return httpx.Response(200, text=body)
 
     provider = OpenAICompatProvider(
         "http://test/v1",
         "secret",
         "provider-model",
-        transport=httpx2.MockTransport(handler),
+        transport=httpx.MockTransport(handler),
     )
 
     chunks = [chunk async for chunk in provider.stream_async(REQUEST)]
@@ -46,14 +46,14 @@ async def test_openai_compatible_provider_reads_sse_and_usage():
 
 @pytest.mark.anyio
 async def test_openai_compatible_provider_preserves_status_code():
-    def handler(request: httpx2.Request) -> httpx2.Response:
-        return httpx2.Response(401, text="bad key")
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(401, text="bad key")
 
     provider = OpenAICompatProvider(
         "http://test/v1",
         "secret",
         "provider-model",
-        transport=httpx2.MockTransport(handler),
+        transport=httpx.MockTransport(handler),
     )
 
     with pytest.raises(Exception) as caught:

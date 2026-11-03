@@ -1,5 +1,5 @@
 .env
-.venv/
+.myvenv/
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -8,8 +8,5 @@ logs/
 data/raw/
 *.sqlite
 .DS_Store
-myvenv/
+myvenv
 django/
-.env
-.env.*
-!.env.example

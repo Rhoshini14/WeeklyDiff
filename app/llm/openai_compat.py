@@ -1,7 +1,7 @@
 import json
 from collections.abc import AsyncIterator
 
-import httpx2
+import httpx
 
 from app.llm.types import LLMProvider, LLMRequest, ProviderError, TextChunk, Usage
 
@@ -15,12 +15,12 @@ class OpenAICompatProvider(LLMProvider):
         api_key: str,
         model: str,
         timeout_seconds: float = 30.0,
-        transport: httpx2.AsyncBaseTransport | None = None,
+        transport: httpx.AsyncBaseTransport | None = None,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
         self.model = model
-        self.timeout = httpx2.Timeout(timeout_seconds, connect=5.0)
+        self.timeout = httpx.Timeout(timeout_seconds, connect=5.0)
         self.transport = transport
 
     async def stream_async(self, request: LLMRequest) -> AsyncIterator[TextChunk]:
@@ -38,7 +38,7 @@ class OpenAICompatProvider(LLMProvider):
             headers["Authorization"] = f"Bearer {self.api_key}"
 
         try:
-            async with httpx2.AsyncClient(
+            async with httpx.AsyncClient(
                 timeout=self.timeout,
                 transport=self.transport,
             ) as client:
@@ -75,13 +75,13 @@ class OpenAICompatProvider(LLMProvider):
                                 yield TextChunk(text)
         except ProviderError:
             raise
-        except httpx2.TimeoutException as error:
+        except httpx.TimeoutException as error:
             raise ProviderError(f"provider timeout: {error}") from error
-        except httpx2.TransportError as error:
+        except httpx.TransportError as error:
             raise ProviderError(f"provider connection failed: {error}") from error
 
 
-def _retry_after(response: httpx2.Response) -> float | None:
+def _retry_after(response: httpx.Response) -> float | None:
     value = response.headers.get("retry-after")
     if value is None:
         return None
