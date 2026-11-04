@@ -42,6 +42,8 @@ def say_root():
 def health(settings: SettingsDep) -> dict:
     """Liveness: the process is up. Must be fast and must not call the LLM or the DB."""
     return {"status": "ok", "app": settings.app_name, "environment": settings.environment}
+
+
 @app.get("/ready")
 def ready(settings: SettingsDep):
     """Readiness: dependencies are reachable. Load balancers and hosts use this."""
