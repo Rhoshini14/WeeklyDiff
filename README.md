@@ -1,4 +1,9 @@
 # Django Code Intelligence System
+[![CI](https://github.com/Rhoshini14/WeeklyDiff)](https://github.com/Rhoshini14/WeeklyDiff/blob/main/.github/workflows/ci.yml)
+
+**Live:** https://weeklydiff.onrender.com/health · first request after 15 idle minutes takes about a minute (free tier)
+
+
 
 ## Problem
 >Django contains thousands of Python files, making it difficult for developers to quickly understand its internal implementation. Developers often spend time searching through source code to find relevant information. AI-powered code assistants may provide outdated answers when the source code changes and the searchable index is not updated. My project aims to solve this problem by detecting code changes and updating only the affected files, helping developers get accurate and up-to-date answers.
@@ -45,4 +50,4 @@ python -m pytest -q
 ```
 
 ## Live link
-Not deployed yet. The live link will be added after deployment in Week 2.
+https://weeklydiff.onrender.com/health
